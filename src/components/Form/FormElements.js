@@ -92,7 +92,7 @@ export const Error = styled(ErrorMessage)`
   @media (max-width: 768px) {
     text-align: left;
     margin: -10px;
-    width: 72vw;
+    /* width: 72vw; */
   }
 `
 
@@ -162,4 +162,17 @@ export const OrLine = styled.span`
   background-color: ${props => props.theme.background};
   color: ${props => props.theme.font};
   padding: 0 1rem 0px 1rem;
+`
+export const ForgotPassword = styled.div`
+  cursor: pointer;
+  font-size: .95rem;
+  margin: -10px;
+  text-align: left;
+  width: 100%;
+  padding: 0 0 0 3rem;
+  @media (max-width: 768px) {
+    text-align: left;
+    margin: -10px;
+    /* width: 100%; */
+  }
 `

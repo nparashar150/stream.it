@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Formik } from "formik"
 import {
   FormFullPageWrapper,
@@ -10,6 +10,7 @@ import {
   LogInWithGoogle,
   DividerLine,
   OrLine,
+  ForgotPassword
 } from "./FormElements"
 import { FormInput } from "./FormInput"
 import * as Yup from "yup"
@@ -21,6 +22,7 @@ import {
   loginWithGoogleAccount,
 } from "../../firebase"
 import { FcGoogle } from "react-icons/fc/index"
+import { navigate } from "gatsby"
 
 const Form = ({
   formHeading,
@@ -31,6 +33,7 @@ const Form = ({
   formInsteadRoute,
   formSubmitFunction,
   loginInGoogle,
+  forgotPassword,
 }) => {
   const ButtonConfig = {
     padding: ".5rem 2rem",
@@ -40,22 +43,28 @@ const Form = ({
     color: lightTheme.font,
     hoverBg: lightTheme.userBorderColor,
   }
+  const [mailSent, setMailSent] = useState(false);
 
   const configHandler = params => {
     if (formSubmitFunction === "create") {
-      return createUserAccount(params.email, params.password)
+      return createUserAccount(params.email, params.password, params.firstName, params.lastName)
     }
     if (formSubmitFunction === "login") {
       return loginUserAccount(params.email, params.password)
     }
     if (formSubmitFunction === "forgotPassword") {
-      return resetEmailPassword(params.email)
+      return handleReset(params)
     }
   }
 
   const handleGoogleLogin = e => {
     e.preventDefault()
     loginWithGoogleAccount()
+  }
+
+  const handleReset = (params) => {
+    setMailSent(true)
+    resetEmailPassword(params.email)
   }
 
   const validators = Yup.object({ ...formValidators })
@@ -102,6 +111,8 @@ const Form = ({
                   />
                 )
               })}
+              {forgotPassword && <ForgotPassword onClick={() => navigate("/auth/reset")} >Reset Password</ForgotPassword>}
+              {mailSent && <ForgotPassword>Check your Email</ForgotPassword>}
               <FormSubmit {...ButtonConfig} type="submit">
                 {formSubmit}
               </FormSubmit>

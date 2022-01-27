@@ -27,10 +27,10 @@ export const formConfig = {
       .max(20, "Password must be less or equal to 20 characters.")
       .min(8, "Password must be at least 8 characters long.")
       .required("Password is required."),
-    passwordConfirm: Yup.string()
   },
   formInstead: "Sign Up instead ?",
   formInsteadRoute: "/auth/signup",
   formSubmitFunction: "login",
-  loginInGoogle: true
+  loginInGoogle: true,
+  forgotPassword: true
 }
