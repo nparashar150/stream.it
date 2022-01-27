@@ -35,7 +35,7 @@ jobs:
         yarn build
         
     - name: Deploy to Netlify
-      uses: nwtgck/actions-netlify@v2
+      uses: nwtgck/actions-netlify@v1.2.3
       with:
           publish-dir: './public'
           production-branch: main
