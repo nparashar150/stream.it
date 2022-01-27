@@ -17,20 +17,38 @@ import {
   query,
   where,
 } from "firebase/firestore"
+import { initializeApp,  getApps } from "firebase/app"
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+}
+
+if (getApps().length === 0) {
+  initializeApp(firebaseConfig)
+}
+
 
 const provider = new GoogleAuthProvider()
 const auth = getAuth()
 const db = getFirestore()
 
 const saveUser = async (email, uid, name) => {
-  const checkIfUserExists = query(collection(db, "email"),where("user", "==", email))
+  const checkIfUserExists = query(
+    collection(db, "email"),
+    where("user", "==", email)
+  )
   const queryData = await getDocs(checkIfUserExists)
-  let flag = [];
+  let flag = []
   queryData.forEach(doc => {
     flag.push(doc.id)
   })
   if (flag.includes(email)) {
-    console.log("exists");
+    console.log("exists")
   } else {
     await setDoc(doc(db, "email", email), {
       user: email,
