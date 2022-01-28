@@ -1,0 +1,57 @@
+{
+  "Main": {
+    "movie_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Movie Title",
+        "placeholder": "Movie Title"
+      }
+    },
+    "movie_banner": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": null,
+          "height": null
+        },
+        "thumbnails": [],
+        "label": "Movie Banner"
+      }
+    },
+    "movie_release_date1": {
+      "type": "Date",
+      "config": {
+        "label": "Movie Release Date"
+      }
+    },
+    "movie_rating": {
+      "type": "Number",
+      "config": {
+        "label": "Movie Rating",
+        "placeholder": "9"
+      }
+    },
+    "movie_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Movie Description"
+      }
+    },
+    "movie_genre": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Movie Genre"
+      }
+    },
+    "movie_story": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Movie Story"
+      }
+    }
+  }
+}
