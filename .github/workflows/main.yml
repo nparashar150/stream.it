@@ -28,12 +28,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 16.x
-
-    - name: Create .env file
-        run: | 
-          echo SECRET=${{ secrets.GATSBY_TEST }} >> .env
-          cat .env
-          
+    # This creates a new env file
+    - name: Create env file
+            run: |
+              touch .env
+              echo API_KEY=${{ secrets.GATSBY_TEST }} >> .env
+              cat .env
 
     # Runs a set of commands using the runners shell
     - name: Build the site
