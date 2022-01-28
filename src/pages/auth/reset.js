@@ -1,16 +1,16 @@
 import React from "react"
 import Form from "../../components/Form/Form"
 import { formConfig } from "../../data/Reset.config"
-import { GlobalStyle, lightTheme } from "../../theme/global-theme"
-import { ThemeProvider } from "styled-components"
+import Layout from "../../components/layout"
+import Seo from "../../components/seo"
 
 export default function login() {
   return (
-    <ThemeProvider theme={lightTheme}>
+    <Layout>
+      <Seo title="Reset Password" />
       <div>
-        <GlobalStyle />
         <Form {...formConfig} />
       </div>
-    </ThemeProvider>
+    </Layout>
   )
 }
