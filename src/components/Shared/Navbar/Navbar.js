@@ -28,11 +28,11 @@ export default function Navbar() {
     if (window.screen.width <= 768) {
       setIsMobile(true)
       setShowNavItems(false)
-      console.log(isMobile, showNavItems)
+      // console.log(isMobile, showNavItems)
     } else {
       setIsMobile(false)
       setShowNavItems(true)
-      console.log(isMobile, showNavItems)
+      // console.log(isMobile, showNavItems)
     }
   }, [])
 
