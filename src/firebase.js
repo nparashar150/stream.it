@@ -20,12 +20,12 @@ import {
 import { initializeApp,  getApps } from "firebase/app"
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_APIKEY,
-  authDomain: process.env.REACT_APP_AUTHDOMAIN,
-  projectId: process.env.REACT_APP_PROJECTID,
-  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
-  appId: process.env.REACT_APP_APPID,
+  apiKey: process.env.GATSBY_APIKEY,
+  authDomain: process.env.GATSBY_AUTHDOMAIN,
+  projectId: process.env.GATSBY_PROJECTID,
+  storageBucket: process.env.GATSBY_STORAGEBUCKET,
+  messagingSenderId: process.env.GATSBY_MESSAGINGSENDERID,
+  appId: process.env.GATSBY_APPID,
 }
 
 if (getApps().length === 0) {
