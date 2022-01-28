@@ -6,9 +6,9 @@ name: Netlify Builds
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [ main, yaml ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, yaml ]
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -58,3 +58,10 @@ jobs:
       env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          ENV_KEY_API_KEY: ${{ secrets.GATSBY_TEST }}
+          ENV_KEY_GATSBY_APIKEY: ${{ secrets.GATSBY_APIKEY }}
+          ENV_KEY_GATSBY_AUTHDOMAIN: ${{ secrets.GATSBY_AUTHDOMAIN }}
+          ENV_KEY_GATSBY_PROJECTID: ${{ secrets.GATSBY_PROJECTID }}
+          ENV_KEY_GATSBY_STORAGEBUCKET: ${{ secrets.GATSBY_STORAGEBUCKET }}
+          ENV_KEY_GATSBY_MESSAGINGSENDERID: ${{ secrets.GATSBY_MESSAGINGSENDERID }}
+          ENV_KEY_GATSBY_APPID: ${{ secrets.GATSBY_APPID }}
