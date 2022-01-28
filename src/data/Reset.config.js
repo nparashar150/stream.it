@@ -19,5 +19,5 @@ export const formConfig = {
   },
   formInstead: "Back to Sign In",
   formInsteadRoute: "/auth/signin",
-  formSubmitFunction: "forgotPassword"
+  formSubmitFunction: "forgotPassword",
 }

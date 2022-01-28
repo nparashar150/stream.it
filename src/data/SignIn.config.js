@@ -32,5 +32,5 @@ export const formConfig = {
   formInsteadRoute: "/auth/signup",
   formSubmitFunction: "login",
   loginInGoogle: true,
-  forgotPassword: true
+  forgotPassword: true,
 }

@@ -165,7 +165,7 @@ export const OrLine = styled.span`
 `
 export const ForgotPassword = styled.div`
   cursor: pointer;
-  font-size: .95rem;
+  font-size: 0.95rem;
   margin: -10px;
   text-align: left;
   width: 100%;

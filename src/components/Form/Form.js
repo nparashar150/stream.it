@@ -10,7 +10,7 @@ import {
   LogInWithGoogle,
   DividerLine,
   OrLine,
-  ForgotPassword
+  ForgotPassword,
 } from "./FormElements"
 import { FormInput } from "./FormInput"
 import * as Yup from "yup"
@@ -43,11 +43,16 @@ const Form = ({
     color: lightTheme.font,
     hoverBg: lightTheme.userBorderColor,
   }
-  const [mailSent, setMailSent] = useState(false);
+  const [mailSent, setMailSent] = useState(false)
 
   const configHandler = params => {
     if (formSubmitFunction === "create") {
-      return createUserAccount(params.email, params.password, params.firstName, params.lastName)
+      return createUserAccount(
+        params.email,
+        params.password,
+        params.firstName,
+        params.lastName
+      )
     }
     if (formSubmitFunction === "login") {
       return loginUserAccount(params.email, params.password)
@@ -62,7 +67,7 @@ const Form = ({
     loginWithGoogleAccount()
   }
 
-  const handleReset = (params) => {
+  const handleReset = params => {
     setMailSent(true)
     resetEmailPassword(params.email)
   }
@@ -111,7 +116,11 @@ const Form = ({
                   />
                 )
               })}
-              {forgotPassword && <ForgotPassword onClick={() => navigate("/auth/reset")} >Reset Password</ForgotPassword>}
+              {forgotPassword && (
+                <ForgotPassword onClick={() => navigate("/auth/reset")}>
+                  Reset Password
+                </ForgotPassword>
+              )}
               {mailSent && <ForgotPassword>Check your Email</ForgotPassword>}
               <FormSubmit {...ButtonConfig} type="submit">
                 {formSubmit}
