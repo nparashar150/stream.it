@@ -1,4 +1,6 @@
-require("dotenv").config();
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: `Antler`,
@@ -38,15 +40,15 @@ module.exports = {
       resolve: "gatsby-plugin-firebase-v9.0",
       options: {
         credentials: {
-          apiKey: process.env.REACT_APP_APIKEY,
-          authDomain: process.env.REACT_APP_AUTHDOMAIN,
-          projectId: process.env.REACT_APP_PROJECTID,
-          storageBucket: process.env.REACT_APP_STORAGEBUCKET,
-          messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
-          appId: process.env.REACT_APP_APPID
-        }
-      }
-    }
+          apiKey: process.env.GATSBY_APIKEY,
+          authDomain: process.env.GATSBY_AUTHDOMAIN,
+          projectId: process.env.GATSBY_PROJECTID,
+          storageBucket: process.env.GATSBY_STORAGEBUCKET,
+          messagingSenderId: process.env.GATSBY_MESSAGINGSENDERID,
+          appId: process.env.GATSBY_APPID,
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
