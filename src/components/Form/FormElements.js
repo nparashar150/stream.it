@@ -98,7 +98,7 @@ export const Error = styled(ErrorMessage)`
 
 export const FormFullPageWrapper = styled.section`
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;

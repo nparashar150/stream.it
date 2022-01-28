@@ -8,9 +8,11 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import "./layout.css"
+import * as layout from "./layout.module.css"
 
-import Header from "./header"
+import { GlobalStyle, lightTheme } from "../theme/global-theme"
+import { ThemeProvider } from "styled-components"
+import Navbar from "./Shared/Navbar/Navbar"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,17 +26,20 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Streamit`} />
-      <div>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+    <ThemeProvider theme={lightTheme}>
+      <GlobalStyle />
+      <div className={layout.wrapper}>
+        <Navbar />
+        <div>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.com">Gatsby</a>
+          </footer>
+        </div>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 
