@@ -30,16 +30,18 @@ jobs:
         node-version: 16.x
         
     # This creates a new env file
-    - name: Create env file
-      run: |
-        touch .env
-        echo API_KEY=${{ secrets.GATSBY_TEST }} >> .env
-        echo GATSBY_APIKEY=${{ secrets.GATSBY_APIKEY }} >> .env
-        echo GATSBY_AUTHDOMAIN=${{ secrets.GATSBY_AUTHDOMAIN }} >> .env
-        echo GATSBY_PROJECTID=${{ secrets.GATSBY_PROJECTID }} >> .env
-        echo GATSBY_STORAGEBUCKET=${{ secrets.GATSBY_STORAGEBUCKET }} >> .env
-        echo GATSBY_MESSAGINGSENDERID=${{ secrets.GATSBY_MESSAGINGSENDERID }} >> .env
-        echo GATSBY_APPID=${{ secrets.GATSBY_APPID }} >> .env
+    - name: Create dotenv
+      uses: iamsauravsharma/create-dotenv@v1.2.1
+      with:
+          env-prefix: 'ENV_KEY_'
+      env:
+          ENV_KEY_API_KEY: ${{ secrets.GATSBY_TEST }}
+          ENV_KEY_GATSBY_APIKEY: ${{ secrets.GATSBY_APIKEY }}
+          ENV_KEY_GATSBY_AUTHDOMAIN: ${{ secrets.GATSBY_AUTHDOMAIN }}
+          ENV_KEY_GATSBY_PROJECTID: ${{ secrets.GATSBY_PROJECTID }}
+          ENV_KEY_GATSBY_STORAGEBUCKET: ${{ secrets.GATSBY_STORAGEBUCKET }}
+          ENV_KEY_GATSBY_MESSAGINGSENDERID: ${{ secrets.GATSBY_MESSAGINGSENDERID }}
+          ENV_KEY_GATSBY_APPID: ${{ secrets.GATSBY_APPID }}
 
     # Runs a set of commands using the runners shell
     - name: Build the site
