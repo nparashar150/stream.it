@@ -35,7 +35,7 @@ jobs:
         touch .env
         echo API_KEY=${{ secrets.GATSBY_TEST }} >> .env
         echo GATSBY_APIKEY=${{ secrets.GATSBY_APIKEY }} >> .env
-        echo GATSBY_AUTHDOMAIN=${{ secret.GATSBY_AUTHDOMAIN }} >> .env
+        echo GATSBY_AUTHDOMAIN=${{ secrets.GATSBY_AUTHDOMAIN }} >> .env
         echo GATSBY_PROJECTID=${{ secrets.GATSBY_PROJECTID }} >> .env
         echo GATSBY_STORAGEBUCKET=${{ secrets.GATSBY_STORAGEBUCKET }} >> .env
         echo GATSBY_MESSAGINGSENDERID=${{ secrets.GATSBY_MESSAGINGSENDERID }} >> .env
