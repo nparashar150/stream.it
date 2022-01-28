@@ -1,0 +1,6 @@
+[build]
+  command = "yarn build"
+  publish = "public/"
+
+[template.environment]
+  NODE_ENV = "production"
