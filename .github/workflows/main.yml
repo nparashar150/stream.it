@@ -39,6 +39,8 @@ jobs:
           GATSBY_STORAGEBUCKET: ${{ secrets.GATSBY_STORAGEBUCKET }}
           GATSBY_MESSAGINGSENDERID: ${{ secrets.GATSBY_MESSAGINGSENDERID }}
           GATSBY_APPID: ${{ secrets.GATSBY_APPID }}
+          GATSBY_PRISMIC_APP_NAME: ${{ secrets.GATSBY_PRISMIC_APP_NAME }}
+          GATSBY_PRISMIC_PERMANANET_ACCESSS_TOKEN: ${{ secrets.GATSBY_PRISMIC_PERMANANET_ACCESSS_TOKEN }}
       run: |
         yarn install --production
         yarn build
