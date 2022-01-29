@@ -79,7 +79,9 @@ const Form = ({
   const validators = Yup.object({ ...formValidators })
 
   useEffect(() => {
-    console.log(user)
+    if (user) {
+      navigate("/")
+    }
   }, [user])
 
   return (

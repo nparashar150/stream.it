@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   signInWithPopup,
+  onAuthStateChanged,
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth"
@@ -121,12 +122,25 @@ export const loginWithGoogleAccount = async (user, dispatch) => {
   }
 }
 
-export const signOutUser = async () => {
+export const signOutUser = async dispatch => {
   try {
     signOut(auth).then(() => {
       console.log("Sign Out success")
+      dispatch({ type: "LOGOUT_SUCCESS" })
     })
   } catch (err) {
     console.error(err)
   }
+}
+
+export function signInStatus(dispatch) {
+  console.log(dispatch)
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      dispatch({ type: "LOGIN_SUCCESS", payload: user })
+    } else {
+      // window.location.replace("/");
+      // console.log("Signed Out");
+    }
+  })
 }
