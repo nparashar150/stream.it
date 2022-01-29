@@ -89,10 +89,15 @@ export const MovieImage = styled(GatsbyImage)`
   border-radius: 0.75rem;
 `
 export const GoBack = styled.div`
-    width: 100%;
-    font-size: 1.15rem;
-    cursor: pointer;
-    font-weight: 700;
-    padding: 0 0 0 1rem;
-    color: ${props => props.theme.font};
+  width: 100%;
+  font-size: 1.15rem;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0 0 0 1rem;
+  color: ${props => props.theme.font};
+  color: orange;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
