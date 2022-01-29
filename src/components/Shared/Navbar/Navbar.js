@@ -77,11 +77,8 @@ export default function Navbar() {
         <NavbarLinks to="/browse">Browse</NavbarLinks>
         <NavbarLinks to="/source">Source</NavbarLinks>
         {isMobile && (
-          <NavbarLogin
-            onClick={() => navigate("/auth/signin")}
-            {...ButtonConfig}
-          >
-            Log In
+          <NavbarLogin onClick={handlerUser} {...ButtonConfig}>
+            {user ? "Log Out" : "Log In"}
           </NavbarLogin>
         )}
       </NavLinkWrapper>
