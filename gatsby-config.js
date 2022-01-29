@@ -49,6 +49,18 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-source-prismic",
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_APP_NAME,
+        accessToken: process.env.GATSBY_PRISMIC_PERMANANET_ACCESSS_TOKEN,
+        schemas: {
+          namanparashar: require("./src/schema/antler-webapp.json"),
+        },
+        typePrefix: "Prefix",
+        lang: '*',
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
