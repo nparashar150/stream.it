@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import {
   NavbarWrapper,
   NavLinkWrapper,
@@ -10,10 +10,13 @@ import {
 import { lightTheme } from "../../../theme/global-theme"
 import { StaticImage } from "gatsby-plugin-image"
 import { navigate } from "gatsby"
+import { AuthContext } from "../../../context/auth/AuthContext"
+import { signInStatus, signOutUser } from "../../../firebase"
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false)
   const [showNavItems, setShowNavItems] = useState(false)
+  const { user, dispatch } = useContext(AuthContext)
 
   const ButtonConfig = {
     padding: ".5rem 2rem",
@@ -22,6 +25,14 @@ export default function Navbar() {
     bold: true,
     color: lightTheme.font,
     hoverBg: lightTheme.userBorderColor,
+  }
+
+  const handlerUser = () => {
+    if (user) {
+      signOutUser(dispatch)
+    } else {
+      navigate("/auth/signin")
+    }
   }
 
   useEffect(() => {
@@ -35,6 +46,10 @@ export default function Navbar() {
       // console.log(isMobile, showNavItems)
     }
   }, [])
+
+  useEffect(() => {
+    signInStatus(dispatch)
+  }, [dispatch, user])
 
   return (
     <NavbarWrapper className="container d-flex justify-content-between align-items-center">
@@ -62,17 +77,14 @@ export default function Navbar() {
         <NavbarLinks to="/browse">Browse</NavbarLinks>
         <NavbarLinks to="/source">Source</NavbarLinks>
         {isMobile && (
-          <NavbarLogin
-            onClick={() => navigate("/auth/signin")}
-            {...ButtonConfig}
-          >
-            Log In
+          <NavbarLogin onClick={handlerUser} {...ButtonConfig}>
+            {user ? "Log Out" : "Log In"}
           </NavbarLogin>
         )}
       </NavLinkWrapper>
       {!isMobile && (
-        <NavbarLogin onClick={() => navigate("/auth/signin")} {...ButtonConfig}>
-          Log In
+        <NavbarLogin onClick={handlerUser} {...ButtonConfig}>
+          {user ? "Log Out" : "Log In"}
         </NavbarLogin>
       )}
     </NavbarWrapper>

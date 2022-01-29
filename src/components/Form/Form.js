@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import { AuthContext } from "../../context/auth/AuthContext"
 import { Formik } from "formik"
 import {
   FormFullPageWrapper,
@@ -44,6 +45,7 @@ const Form = ({
     hoverBg: lightTheme.userBorderColor,
   }
   const [mailSent, setMailSent] = useState(false)
+  let { user, dispatch } = useContext(AuthContext)
 
   const configHandler = params => {
     if (formSubmitFunction === "create") {
@@ -51,11 +53,13 @@ const Form = ({
         params.email,
         params.password,
         params.firstName,
-        params.lastName
+        params.lastName,
+        user,
+        dispatch
       )
     }
     if (formSubmitFunction === "login") {
-      return loginUserAccount(params.email, params.password)
+      return loginUserAccount(params.email, params.password, user, dispatch)
     }
     if (formSubmitFunction === "forgotPassword") {
       return handleReset(params)
@@ -64,7 +68,7 @@ const Form = ({
 
   const handleGoogleLogin = e => {
     e.preventDefault()
-    loginWithGoogleAccount()
+    loginWithGoogleAccount(user, dispatch)
   }
 
   const handleReset = params => {
@@ -73,6 +77,13 @@ const Form = ({
   }
 
   const validators = Yup.object({ ...formValidators })
+
+  useEffect(() => {
+    if (user) {
+      navigate("/")
+    }
+  }, [user])
+
   return (
     <FormFullPageWrapper>
       <Formik

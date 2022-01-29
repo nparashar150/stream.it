@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   signInWithPopup,
+  onAuthStateChanged,
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth"
@@ -17,7 +18,7 @@ import {
   query,
   where,
 } from "firebase/firestore"
-import { initializeApp,  getApps } from "firebase/app"
+import { initializeApp, getApps } from "firebase/app"
 
 const firebaseConfig = {
   apiKey: process.env.GATSBY_APIKEY,
@@ -31,7 +32,6 @@ const firebaseConfig = {
 if (getApps().length === 0) {
   initializeApp(firebaseConfig)
 }
-
 
 const provider = new GoogleAuthProvider()
 const auth = getAuth()
@@ -64,52 +64,83 @@ export const createUserAccount = async (
   email,
   password,
   firstName,
-  lastName
+  lastName,
+  user,
+  dispatch
 ) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password)
+    dispatch({ type: "LOGIN_START" })
     const name = firstName + " " + lastName
     saveUser(email, res.user.uid, name)
-    console.log(res)
+    res.user &&
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: { email: res.user.email, name: res.user.displayName },
+      })
   } catch (err) {
+    dispatch({ type: "LOGIN_FAILURE", payload: err })
     console.error(err)
   }
 }
 
-export const loginUserAccount = async (email, password) => {
+export const loginUserAccount = async (email, password, user, dispatch) => {
   try {
+    dispatch({ type: "LOGIN_START" })
     const res = await signInWithEmailAndPassword(auth, email, password)
-    console.log(res)
+    res.user &&
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: { email, name: res.user.displayName },
+      })
   } catch (err) {
+    dispatch({ type: "LOGIN_FAILURE", payload: err })
     console.error(err)
   }
 }
 
 export const resetEmailPassword = async email => {
   try {
-    const res = await sendPasswordResetEmail(auth, email)
-    console.log(res)
+    await sendPasswordResetEmail(auth, email)
   } catch (err) {
     console.error(err)
   }
 }
 
-export const loginWithGoogleAccount = async () => {
+export const loginWithGoogleAccount = async (user, dispatch) => {
   try {
     const res = await signInWithPopup(auth, provider)
-    console.log(res)
     await saveUser(res.user.email, res.user.uid, res.user.displayName)
+    res.user &&
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: { email: res.user.email, name: res.user.displayName },
+      })
   } catch (err) {
+    dispatch({ type: "LOGIN_FAILURE", payload: err })
     console.error(err)
   }
 }
 
-export const signOutUser = async () => {
+export const signOutUser = async dispatch => {
   try {
     signOut(auth).then(() => {
       console.log("Sign Out success")
+      dispatch({ type: "LOGOUT_SUCCESS" })
     })
   } catch (err) {
     console.error(err)
   }
+}
+
+export function signInStatus(dispatch) {
+  console.log(dispatch)
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      dispatch({ type: "LOGIN_SUCCESS", payload: user })
+    } else {
+      // window.location.replace("/");
+      // console.log("Signed Out");
+    }
+  })
 }
