@@ -21,7 +21,10 @@ export default function MovieListMapper({ prismic }) {
           prismic[key].node.data.movie_banner.gatsbyImageData
         )
         return (
-          <Link key={key} to={`/details/${prismic[key].node.data.movie_title.text}`} >
+          <Link
+            key={key}
+            to={`/details/${prismic[key].node.data.movie_title.text}`}
+          >
             <MovieItemWrapper>
               <MovieImageWrapper>
                 <GatsbyImage

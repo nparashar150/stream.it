@@ -24,6 +24,7 @@ export const MovieImageRating = styled.p`
 
 export const MovieImageWrapper = styled.div`
   overflow: hidden;
+  transition: 0.375s all ease-in-out;
 `
 
 export const MovieItemHeading = styled.h1`
@@ -80,10 +81,10 @@ export const MovieItemInfo = styled.p`
 `
 export const MovieItemWrapper = styled.div`
   display: block;
-  width: 300px;
-  height: 450px;
+  width: 280px;
+  height: 420px;
   background: ${props => props.theme.background};
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   padding: 0;
   margin: 0;
   position: relative;
@@ -97,6 +98,7 @@ export const MovieItemWrapper = styled.div`
   &:hover,
   &:focus {
     img {
+      transition: 0.375s all ease-in-out;
       filter: grayscale(10%) brightness(50%) saturate(90%);
     }
 
@@ -108,6 +110,10 @@ export const MovieItemWrapper = styled.div`
     ${MovieItemInfo} {
       top: 22%;
       opacity: 1;
+    }
+
+    ${MovieImageWrapper} {
+      filter: blur(2px);
     }
   }
 `
