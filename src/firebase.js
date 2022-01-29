@@ -83,7 +83,7 @@ export const createUserAccount = async (
   }
 }
 
-export const loginUserAccount = async (email, password, dispatch) => {
+export const loginUserAccount = async (email, password, user, dispatch) => {
   try {
     dispatch({ type: "LOGIN_START" })
     const res = await signInWithEmailAndPassword(auth, email, password)
