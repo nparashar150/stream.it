@@ -10,6 +10,10 @@ export const Button = styled.button`
   border: 4px solid
     ${props => (props.hoverBg ? props.hoverBg : props.theme.userBorderColor)};
   transition: 0.375s all ease-in-out;
+  filter: ${props =>
+    props.dropShadow &&
+    `drop-shadow(0 0 10px ${props => props.theme.font + "35"})`};
+
   ${({ zIndex }) =>
     zIndex &&
     css`

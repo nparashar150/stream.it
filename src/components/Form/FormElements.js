@@ -10,7 +10,7 @@ export const FormWrapper = styled(Form)`
   min-width: 30rem;
   max-width: 35rem;
   background: ${props => props.theme.background};
-  border: 4px solid ${props => props.theme.userBorderColor};
+  border: 4px solid ${props => props.theme.font + "AA"};
   border-radius: 0.75rem;
   flex-wrap: wrap;
   padding: 1.5rem 0rem;
@@ -26,6 +26,12 @@ export const FormWrapper = styled(Form)`
     width: 90vw;
     min-width: 90vw;
     max-width: 90vw;
+
+    ${({ createmobileview }) =>
+      createmobileview &&
+      css`
+        margin-top: 10vh;
+      `}
   }
 `
 export const StyledInput = styled.input`

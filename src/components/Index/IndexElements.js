@@ -31,10 +31,13 @@ export const LandingHeading = styled.h1`
     margin: 0;
     font-size: 4rem;
     width: 100%;
-    padding: 0 5vw;
   }
 
   span {
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    text-align: center;
     width: 100%;
     -webkit-text-fill-color: ${props => props.theme.background};
     -webkit-text-stroke-width: 3px;
@@ -66,6 +69,7 @@ export const AboutWrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     width: 100%;
+    border-radius: 0rem;
     padding: 10vh 5vw;
   }
 

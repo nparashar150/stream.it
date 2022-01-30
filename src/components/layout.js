@@ -12,8 +12,9 @@ import { AuthContextProvider } from "../context/auth/AuthContext"
 import { GlobalStyle, lightTheme } from "../theme/global-theme"
 import { ThemeProvider } from "styled-components"
 import Navbar from "./Shared/Navbar/Navbar"
+import Footer from "./Shared/Footer/Footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isLanding }) => {
   return (
     <AuthContextProvider>
       <ThemeProvider theme={lightTheme}>
@@ -22,11 +23,7 @@ const Layout = ({ children }) => {
           <Navbar />
           <div>
             <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.com">Gatsby</a>
-            </footer>
+            <Footer isLanding={isLanding} />
           </div>
         </div>
       </ThemeProvider>
