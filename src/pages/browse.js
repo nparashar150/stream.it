@@ -2,19 +2,21 @@ import React from "react"
 import MovieListMapper from "../components/MovieList/MovieListMapper"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { graphql } from 'gatsby'
+import { graphql } from "gatsby"
 
 export default function browse(props) {
   return (
     <Layout>
       <Seo title="Browse Movies" />
-      <MovieListMapper prismic={props.data.allPrismicPrefixNamanparashar.edges} />
+      <MovieListMapper
+        prismic={props.data.allPrismicPrefixNamanparashar.edges}
+      />
     </Layout>
   )
 }
 
 export const prismicQuery = graphql`
-query getPrismicData {
+  query getPrismicData {
     allPrismicPrefixNamanparashar {
       edges {
         node {
@@ -37,5 +39,5 @@ query getPrismicData {
         }
       }
     }
-  }  
+  }
 `

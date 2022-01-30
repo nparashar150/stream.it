@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const Button = styled.button`
   padding: ${props => (props.padding ? props.padding : "1rem 2rem")};
@@ -6,12 +6,19 @@ export const Button = styled.button`
   font-size: ${props => (props.fontSize ? props.fontSize : "1.15rem")};
   color: ${props => (props.color ? props.color : props.theme.background)};
   background: ${props => props.theme.background};
-  font-weight: ${props => props.bold && "600"};
-  border: 4px solid ${props => props.theme.userBorderColor};
+  font-weight: ${props => (props.bold ? props.bold : "500")};
+  border: 4px solid
+    ${props => (props.hoverBg ? props.hoverBg : props.theme.userBorderColor)};
   transition: 0.375s all ease-in-out;
+  ${({ zIndex }) =>
+    zIndex &&
+    css`
+      z-index: ${props => (props.zIndex ? props.zIndex : 1)};
+    `}
 
   &:hover,
   &:focus {
-    border: 4px solid ${props => props.theme.font + "AA"};
+    border: 4px solid
+      ${props => (props.hoverBg ? props.hoverBg : props.theme.font + "AA")};
   }
 `

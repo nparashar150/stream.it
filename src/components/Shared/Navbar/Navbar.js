@@ -24,7 +24,6 @@ export default function Navbar() {
     fontSize: "1rem",
     bold: true,
     color: lightTheme.font,
-    hoverBg: lightTheme.userBorderColor,
   }
 
   const handlerUser = () => {

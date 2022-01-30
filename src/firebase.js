@@ -134,7 +134,6 @@ export const signOutUser = async dispatch => {
 }
 
 export function signInStatus(dispatch) {
-  console.log(dispatch)
   onAuthStateChanged(auth, user => {
     if (user) {
       dispatch({ type: "LOGIN_SUCCESS", payload: user })

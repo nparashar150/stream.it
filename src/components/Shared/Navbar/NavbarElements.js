@@ -7,10 +7,10 @@ export const NavbarWrapper = styled.nav`
   height: 10vh;
   flex-direction: row;
   flex-wrap: nowrap;
-  z-index: 10;
-  padding: 0 0 1rem 0;
+  z-index: 100;
+  padding: 1rem 0 1rem 0;
   background: ${props => props.theme.background};
-  
+
   @media (max-width: 768px) {
     position: fixed;
     top: 0%;
@@ -27,7 +27,7 @@ export const NavbarWrapper = styled.nav`
 export const NavLinkWrapper = styled.div`
   width: 50%;
   flex-direction: row;
-  transition: .375s all ease-in-out;
+  transition: 0.375s all ease-in-out;
   z-index: 1;
 
   @media (max-width: 768px) {
