@@ -75,3 +75,4 @@ netlify/functions/gatsby
 # @netlify/plugin-gatsby ignores end
 
 Sample.json
+.firebase/
