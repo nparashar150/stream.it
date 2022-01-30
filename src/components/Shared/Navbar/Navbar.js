@@ -75,7 +75,7 @@ export default function Navbar() {
         className="d-flex justify-content-around align-items-center"
       >
         <NavbarLinks to="/about">About</NavbarLinks>
-        <NavbarLinks to="/browse">Browse</NavbarLinks>
+        <NavbarLinks to={user ? "/browse" : "/auth/signin"}>Browse</NavbarLinks>
         <NavbarLinks
           to={"https://github.com/nparashar150/WebApp"}
           target={"_blank"}
