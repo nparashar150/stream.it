@@ -21,10 +21,29 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
     transition: all 0.375 ease-in-out;
   }
   body {
     background-color:  ${props => props.theme.background};
     color: ${props => props.theme.font};
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: ${props => props.theme.background};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.font};
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${props => props.theme.font + "AA"};
+  }
+  ::-moz-selection {
+    background: ${props => props.theme.font + "25"};
+  }
+  ::selection {
+    background: ${props => props.theme.font + "25"};
   }
 `

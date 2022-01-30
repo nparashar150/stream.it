@@ -12,7 +12,7 @@ export const MovieListWrapper = styled.section`
 
   @media (max-width: 768px) {
     padding: 0 5vw;
-    margin-top: calc(10vh + 1rem);
+    margin-top: calc(10vh + 2rem);
   }
 `
 

@@ -56,10 +56,17 @@ module.exports = {
         accessToken: process.env.GATSBY_PRISMIC_PERMANANET_ACCESSS_TOKEN,
         schemas: {
           namanparashar: require("./src/schema/antler-webapp.json"),
+          landingpage: require("./src/schema/antler-landing.json"),
+          featurelist: require("./src/schema/antler-features.json"),
+          "antler-webapp-landing-page": {},
         },
         typePrefix: "Prefix",
-        lang: '*',
+        lang: "*",
       },
+    },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/app/*`] },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

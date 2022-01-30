@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
     actions.createPage({
       path: `/details/${edge.data.movie_title.text}`,
       component: require.resolve(`./src/templates/MovieInfo/MovieInfo.js`),
-      context: { name: edge.data.movie_title.text }
+      context: { name: edge.data.movie_title.text },
     })
   })
 }
