@@ -14,13 +14,14 @@
 2.  **Browse Page**
 3.  **Firebase Login**
 4.  **Firebase Login with Email**
-5.  **Firebase Reset Password**
-6.  **Fetch data from Prismic CMS**
-7.  **Github Actions for Netlify deploys**
+5.  **Firebase save Email to Firestore**
+6.  **Firebase Reset Password**
+7.  **Fetch data from Prismic CMS via GraphQL**
+8.  **Github Actions for Netlify deploys**
 
     ### Site is live at [firebase](https://antler-webapp.web.app/) / [netlify](https://antler-webapp.netlify.app/)
 
-    _Note: Firebase login with Pop_up does not work on netlify as firebase needs domain verification before whitelisting the custom domain 
+    _Note: Firebase login with pop_up does not work on netlify as firebase needs domain verification before whitelisting the custom domain
 
 ## ❌ What all does not work.
 
