@@ -4,7 +4,7 @@ import { formConfig } from "../../data/Reset.config"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
-export default function login() {
+export default function Reset() {
   return (
     <Layout>
       <Seo title="Reset Password" />

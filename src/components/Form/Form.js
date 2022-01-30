@@ -81,7 +81,7 @@ const Form = ({
 
   useEffect(() => {
     if (user) {
-      navigate("/")
+      navigate("/browse")
     }
   }, [user])
 

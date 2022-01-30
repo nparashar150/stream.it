@@ -74,13 +74,15 @@ export default function Navbar() {
         animateNav={showNavItems}
         className="d-flex justify-content-around align-items-center"
       >
-        <NavbarLinks to="/about">About</NavbarLinks>
+        <NavbarLinks to={"https://github.com/nparashar150"} target={"_blank"}>
+          About Me
+        </NavbarLinks>
         <NavbarLinks to={user ? "/browse" : "/auth/signin"}>Browse</NavbarLinks>
         <NavbarLinks
           to={"https://github.com/nparashar150/WebApp"}
           target={"_blank"}
         >
-          Source
+          Source Code
         </NavbarLinks>
         {isMobile && (
           <NavbarLogin onClick={handlerUser} {...ButtonConfig}>

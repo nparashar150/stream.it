@@ -4,7 +4,7 @@ import { formConfig } from "../../data/SignUp.config"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
-export default function login() {
+export default function SignUp() {
   return (
     <Layout>
       <Seo title="Sign Up" />
