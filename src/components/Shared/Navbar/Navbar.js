@@ -22,8 +22,9 @@ export default function Navbar() {
     padding: ".5rem 2rem",
     curve: ".65rem",
     fontSize: "1rem",
-    bold: true,
+    bold: 600,
     color: lightTheme.font,
+    hoverBg: lightTheme.font,
   }
 
   const handlerUser = () => {
@@ -59,6 +60,7 @@ export default function Navbar() {
         formats={["auto", "webp", "avif"]}
         alt="Antler"
         style={navbrandConfig}
+        placeholder="BLURRED"
         onClick={() => navigate("/")}
       />
       {isMobile && (
@@ -74,7 +76,12 @@ export default function Navbar() {
       >
         <NavbarLinks to="/about">About</NavbarLinks>
         <NavbarLinks to="/browse">Browse</NavbarLinks>
-        <NavbarLinks to="/source">Source</NavbarLinks>
+        <NavbarLinks
+          to={"https://github.com/nparashar150/WebApp"}
+          target={"_blank"}
+        >
+          Source
+        </NavbarLinks>
         {isMobile && (
           <NavbarLogin onClick={handlerUser} {...ButtonConfig}>
             {user ? "Log Out" : "Log In"}

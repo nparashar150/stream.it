@@ -35,6 +35,7 @@ const Form = ({
   formSubmitFunction,
   loginInGoogle,
   forgotPassword,
+  createmobileview,
 }) => {
   const ButtonConfig = {
     padding: ".5rem 2rem",
@@ -99,7 +100,10 @@ const Form = ({
       >
         {formik => (
           <div className="d-flex justify-content-center align-items-center">
-            <FormWrapper className="d-flex justify-content-center align-items-center flex-column">
+            <FormWrapper
+              createmobileview={createmobileview}
+              className="d-flex justify-content-center align-items-center flex-column"
+            >
               <FormHeading>{formHeading}</FormHeading>
               {loginInGoogle && (
                 <FormLoginWithGoogleWrapper

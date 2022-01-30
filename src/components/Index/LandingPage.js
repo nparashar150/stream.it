@@ -30,6 +30,7 @@ export default function Index({ data, features }) {
     color: lightTheme.font,
     hoverBg: lightTheme.font,
     zIndex: 5,
+    dropShadow: true,
   }
 
   const aboutImage = getImage(data.landingaboutimage.gatsbyImageData)

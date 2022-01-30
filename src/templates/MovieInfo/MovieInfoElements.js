@@ -11,8 +11,8 @@ export const MovieInfoWrapper = styled.section`
   flex-direction: row;
   padding: 2rem;
 
-  @media (max-width: 375px) {
-    margin-top: calc(10vh + 3rem);
+  @media (max-width: 768px) {
+    margin-top: calc(10vh + 2rem);
     padding: 0 2rem 2rem 2rem;
     gap: 0.5rem;
   }

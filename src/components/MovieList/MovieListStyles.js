@@ -9,10 +9,12 @@ export const MovieListWrapper = styled.section`
   gap: 2rem;
   flex-direction: row;
   padding-top: 2rem;
+  padding-bottom: 10vh;
 
   @media (max-width: 768px) {
-    padding: 0 5vw;
+    padding: 1rem 5vw;
     margin-top: calc(10vh + 2rem);
+    margin-bottom: 10vh;
   }
 `
 

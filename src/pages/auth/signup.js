@@ -9,7 +9,7 @@ export default function login() {
     <Layout>
       <Seo title="Sign Up" />
       <div>
-        <Form {...formConfig} />
+        <Form createmobileview {...formConfig} />
       </div>
     </Layout>
   )
