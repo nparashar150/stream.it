@@ -35,7 +35,6 @@ export default function Index({ data, features }) {
 
   const aboutImage = getImage(data.landingaboutimage.gatsbyImageData)
   const featuresImage = getImage(data.landingfeaturesimage.gatsbyImageData)
-  console.log(features)
   return (
     <>
       <LandingWrapper className="container d-flex justify-content-center align-items-center">

@@ -77,7 +77,9 @@ export default function Navbar() {
         <NavbarLinks to={"https://github.com/nparashar150"} target={"_blank"}>
           About Me
         </NavbarLinks>
-        <NavbarLinks to={user ? "/browse" : "/auth/signin"}>Browse</NavbarLinks>
+        <NavbarLinks to={user ? "/auth/browse" : "/auth/signin"}>
+          Browse
+        </NavbarLinks>
         <NavbarLinks
           to={"https://github.com/nparashar150/WebApp"}
           target={"_blank"}

@@ -7,7 +7,7 @@ import {
   MovieInsightsWrapper,
   MovieInsights,
   MovieImage,
-  GoBack
+  GoBack,
 } from "./MovieInfoElements"
 import Seo from "../../components/seo"
 import { graphql, navigate } from "gatsby"
