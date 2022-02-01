@@ -33,9 +33,7 @@ const FooterWrapper = styled.footer`
   color: ${props => props.theme.font};
   flex-direction: column;
   width: 100%;
-  padding: 2rem 0 1rem 0;
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
+  padding: 4rem 0 1rem 0;
   outline: 4px solid ${props => props.theme.font};
   border-top: 4px solid ${props => props.theme.font};
   outline-offset: 2px;
@@ -45,6 +43,8 @@ const FooterWrapper = styled.footer`
   ${({ isLanding }) =>
     isLanding &&
     css`
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
       background: ${props => props.theme.font};
       color: ${props => props.theme.background};
     `}

@@ -3,6 +3,7 @@ import {
   NavbarWrapper,
   NavLinkWrapper,
   NavbarLinks,
+  NavbarLinksAnchor,
   NavbarLogin,
   NavbarMenu,
   navbrandConfig,
@@ -16,6 +17,10 @@ import { signInStatus, signOutUser } from "../../../firebase"
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false)
   const [showNavItems, setShowNavItems] = useState(false)
+  const [screenSize, setScreenSize] = useState({
+    width: undefined,
+    height: undefined,
+  })
   const { user, dispatch } = useContext(AuthContext)
 
   const ButtonConfig = {
@@ -36,23 +41,31 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    if (window.screen.width <= 768) {
+    if (screenSize.width <= 768) {
       setIsMobile(true)
       setShowNavItems(false)
-      // console.log(isMobile, showNavItems)
     } else {
       setIsMobile(false)
       setShowNavItems(true)
-      // console.log(isMobile, showNavItems)
     }
-  }, [])
+
+    function handleResize() {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+    window.addEventListener("resize", handleResize)
+    handleResize()
+    return () => window.removeEventListener("resize", handleResize)
+  }, [screenSize.width])
 
   useEffect(() => {
     signInStatus(dispatch)
   }, [dispatch, user])
 
   return (
-    <NavbarWrapper className="container d-flex justify-content-between align-items-center">
+    <NavbarWrapper className="container-fluid d-flex justify-content-between align-items-center">
       <StaticImage
         src={"../../../images/gatsby-icon.png"}
         width={45}
@@ -74,18 +87,21 @@ export default function Navbar() {
         animateNav={showNavItems}
         className="d-flex justify-content-around align-items-center"
       >
-        <NavbarLinks to={"https://github.com/nparashar150"} target={"_blank"}>
+        <NavbarLinksAnchor
+          href={"https://github.com/nparashar150"}
+          target={"_blank"}
+        >
           About Me
-        </NavbarLinks>
+        </NavbarLinksAnchor>
         <NavbarLinks to={user ? "/auth/browse" : "/auth/signin"}>
           Browse
         </NavbarLinks>
-        <NavbarLinks
-          to={"https://github.com/nparashar150/WebApp"}
+        <NavbarLinksAnchor
+          href={"https://github.com/nparashar150/WebApp"}
           target={"_blank"}
         >
           Source Code
-        </NavbarLinks>
+        </NavbarLinksAnchor>
         {isMobile && (
           <NavbarLogin onClick={handlerUser} {...ButtonConfig}>
             {user ? "Log Out" : "Log In"}

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import {
   MovieListWrapper,
   MovieItemWrapper,
@@ -10,22 +10,25 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 export default function MovieListMapper({ prismic }) {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    setData([...prismic])
+  }, [prismic])
+
   const bannerStyles = {
     overflow: "hidden",
     objectFit: "cover",
   }
+
   return (
     <div className="container">
       <MovieListWrapper className="container px-2">
-        {Object.keys(prismic).map(key => {
-          const image = getImage(
-            prismic[key].node.data.movie_banner.gatsbyImageData
-          )
+        {data.map((prismic, key) => {
+          let e = prismic.node.data
+          const image = getImage(e.movie_banner.gatsbyImageData)
           return (
-            <Link
-              key={key}
-              to={`/details/${prismic[key].node.data.movie_title.text}`}
-            >
+            <Link key={key} to={`/details/${e.movie_title.text}`}>
               <MovieItemWrapper>
                 <MovieImageWrapper>
                   <GatsbyImage
@@ -35,22 +38,18 @@ export default function MovieListMapper({ prismic }) {
                     style={bannerStyles}
                   />
                 </MovieImageWrapper>
-                <MovieItemHeading>
-                  {prismic[key].node.data.movie_title.text}
-                </MovieItemHeading>
+                <MovieItemHeading>{e.movie_title.text}</MovieItemHeading>
                 <div>
                   <MovieItemInfo releaseDate>
-                    {prismic[key].node.data.movie_release_date1.slice(0, 4)}
+                    {e.movie_release_date1.slice(0, 4)}
                   </MovieItemInfo>
-                  <MovieItemInfo genre>
-                    {prismic[key].node.data.movie_genre.text}
-                  </MovieItemInfo>
+                  <MovieItemInfo genre>{e.movie_genre.text}</MovieItemInfo>
                   <MovieItemInfo rating>
-                    {"Rating: " + prismic[key].node.data.movie_rating}
+                    {"Rating: " + e.movie_rating}
                   </MovieItemInfo>
                 </div>
                 <MovieItemInfo description>
-                  {prismic[key].node.data.movie_description.text}
+                  {e.movie_description.text}
                 </MovieItemInfo>
               </MovieItemWrapper>
             </Link>

@@ -2,11 +2,12 @@ import React from "react"
 import { Router } from "@reach/router"
 import Layout from "../components/layout"
 import PrivateRoute from "../components/privateRoute"
+import Browse from "./auth/browse"
 import { graphql } from "gatsby"
-import MovieListMapper from "../components/MovieList/MovieListMapper"
 import SignIn from "./auth/signin"
 import SignUp from "./auth/signup"
 import Reset from "./auth/reset"
+import NotFound from "./404"
 
 const App = ({ data }) => {
   return (
@@ -18,8 +19,9 @@ const App = ({ data }) => {
         <PrivateRoute
           path="/auth/browse"
           prismic={data.allPrismicPrefixNamanparashar.edges}
-          component={MovieListMapper}
+          component={Browse}
         />
+        <NotFound default />
       </Router>
     </Layout>
   )
@@ -48,6 +50,7 @@ export const prismicQuery = graphql`
               text
             }
           }
+          id
         }
       }
     }

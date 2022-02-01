@@ -7,6 +7,7 @@ export const MovieInfoWrapper = styled.section`
   align-items: center;
   flex-wrap: wrap;
   height: 100%;
+  margin-top: 10vh;
   gap: 2rem;
   flex-direction: row;
   padding: 2rem;

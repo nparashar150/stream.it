@@ -8,7 +8,11 @@ export const NavbarWrapper = styled.nav`
   flex-direction: row;
   flex-wrap: nowrap;
   z-index: 100;
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 7vw 1rem 7vw;
+  position: fixed;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 0;
   background: ${props => props.theme.background};
 
   @media (max-width: 768px) {
@@ -29,9 +33,13 @@ export const NavLinkWrapper = styled.div`
   flex-direction: row;
   transition: 0.375s all ease-in-out;
   z-index: 1;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
 
   @media (max-width: 768px) {
     width: 100%;
+    position: relative;
     gap: 1rem;
     padding: 1rem 0 0 0;
     overflow: hidden;
@@ -42,6 +50,20 @@ export const NavLinkWrapper = styled.div`
 `
 
 export const NavbarLinks = styled(Link)`
+  text-decoration: none;
+  color: ${props => props.theme.font};
+  cursor: pointer;
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    color: ${props => props.theme.font + "CC"};
+  }
+`
+export const NavbarLinksAnchor = styled.a`
   text-decoration: none;
   color: ${props => props.theme.font};
   cursor: pointer;

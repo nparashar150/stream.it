@@ -8,7 +8,7 @@ export const MovieListWrapper = styled.section`
   height: 100%;
   gap: 2rem;
   flex-direction: row;
-  padding-top: 2rem;
+  padding-top: calc(10vh + 2rem);
   padding-bottom: 10vh;
 
   @media (max-width: 768px) {
@@ -40,6 +40,7 @@ export const MovieItemHeading = styled.h1`
   padding: 0 30px;
   width: 100%;
   transition: 0.375s all ease-in-out;
+  white-space: nowrap;
 `
 export const MovieItemInfo = styled.p`
   font-size: 1.15rem;

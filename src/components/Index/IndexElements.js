@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 
 export const LandingWrapper = styled.div`
   width: 100%;
-  height: 85vh;
+  height: 95vh;
   flex-wrap: nowrap;
   flex-direction: column;
   padding: 1rem 10vw;
