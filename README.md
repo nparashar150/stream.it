@@ -18,15 +18,15 @@
 6.  **Firebase Reset Password**
 7.  **Fetch data from Prismic CMS via GraphQL**
 8.  **Github Actions for Netlify deploys**
+9.  **@reach/router for Private Routing**
 
     ### Site is live at [firebase](https://antler-webapp.web.app/) / [netlify](https://antler-webapp.netlify.app/)
 
-    _Note: Firebase login with pop_up does not work on netlify as firebase needs domain verification before whitelisting the custom domain
+    \_Note: Firebase login with pop_up does not work on netlify as firebase needs domain verification before whitelisting the custom domain
 
 ## ❌ What all does not work.
 
-1. **@reach/router for Private Routing**
-2.  **Firebase OTP**
+1.  **Firebase OTP**
 
 ## 🧐 What's inside?
 
