@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { navigate } from "gatsby"
+import * as React from "react"
+import { navigate } from "@reach/router"
 import {
   NotFoundWrapper,
   NotFoundHeading,
@@ -8,20 +8,20 @@ import {
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const NotFoundPage = () => {
-  useEffect(() => {
+const NotFoundPage: React.FC = () => {
+  React.useEffect(() => {
     setTimeout(() => {
       navigate("/")
     }, 2500)
   }, [])
 
   return (
-    <Layout>
+    <Layout isLanding={false}>
       <Seo title="404: Not found" />
       <NotFoundWrapper className="container d-flex justify-content-center align-items-center">
-        <NotFoundHeading>404: Not Found</NotFoundHeading>
+        <NotFoundHeading>Made with Typescript</NotFoundHeading>
         <NotFoundInfo>
-          You just hit a route that doesn&#39;t exist... the sadness.
+          This is just a dummy page.
           <br />
           Please wait, taking you back...
         </NotFoundInfo>

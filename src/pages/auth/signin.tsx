@@ -1,15 +1,15 @@
 import React from "react"
 import Form from "../../components/Form/Form"
-import { formConfig } from "../../data/SignUp.config"
+import { formConfig } from "../../data/SignIn.config"
 // import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
-export default function SignUp() {
+export default function SignIn() {
   return (
     <>
-      <Seo title="Sign Up" />
+      <Seo title="Sign In" />
       <div>
-        <Form createmobileview {...formConfig} />
+        <Form createmobileview={false} {...formConfig} />
       </div>
     </>
   )
