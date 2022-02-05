@@ -9,7 +9,12 @@ export default function Reset() {
     <>
       <Seo title="Reset Password" />
       <div>
-        <Form {...formConfig} />
+        <Form
+          loginInGoogle={false}
+          forgotPassword={false}
+          createmobileview={false}
+          {...formConfig}
+        />
       </div>
     </>
   )

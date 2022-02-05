@@ -1,16 +1,15 @@
-import React from "react"
+import * as React from "react"
 import MovieListMapper from "../components/MovieList/MovieListMapper"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { graphql } from "gatsby"
+import { DataProps } from "../interface/MovieList"
 
-export default function browse(props) {
+export default function Browse({ data }: DataProps) {
   return (
-    <Layout>
+    <Layout isLanding={false}>
       <Seo title="Browse Movies" />
-      <MovieListMapper
-        prismic={props.data.allPrismicPrefixNamanparashar.edges}
-      />
+      <MovieListMapper prismic={data.allPrismicPrefixNamanparashar.edges} />
     </Layout>
   )
 }

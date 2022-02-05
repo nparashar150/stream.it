@@ -8,20 +8,22 @@ import SignIn from "./auth/signin"
 import SignUp from "./auth/signup"
 import Reset from "./auth/reset"
 import NotFound from "./404"
+import { DataProps } from "../interface/MovieList"
 
-const App = ({ data }) => {
+const App = ({ data }: DataProps) => {
   return (
-    <Layout>
+    <Layout isLanding={false}>
       <Router>
         <Reset path="/auth/reset" />
         <SignIn path="/auth/signin" />
         <SignUp path="/auth/signup" />
         <PrivateRoute
+          location={"/auth/browse"}
           path="/auth/browse"
           prismic={data.allPrismicPrefixNamanparashar.edges}
           component={Browse}
         />
-        <NotFound default />
+        <NotFound default={true} />
       </Router>
     </Layout>
   )

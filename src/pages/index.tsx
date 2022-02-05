@@ -1,20 +1,18 @@
 import * as React from "react"
-// import { Link } from "gatsby"
-// import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Index from "../components/Index/LandingPage"
 import { graphql } from "gatsby"
+import { DataProps } from "../interface/MovieList"
 
 const IndexPage = ({
   data: {
     allPrismicPrefixLandingpage: { edges },
     allPrismicPrefixFeaturelist,
   },
-}) => {
+}: DataProps) => {
   return (
-    <Layout isLanding>
+    <Layout isLanding={true}>
       <Seo title="Home" />
       <Index data={edges[0].node.data} features={allPrismicPrefixFeaturelist} />
     </Layout>
