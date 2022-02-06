@@ -58,7 +58,8 @@ export const LandingImageWrapper = styled.div`
     width: 100%;
   }
 `
-export const AboutWrapper = styled.div`
+
+export const AboutWrapper = styled.div<{ features?: boolean }>`
   flex-direction: row;
   padding: 15vh 10vw;
   background-color: ${props => props.theme.font};

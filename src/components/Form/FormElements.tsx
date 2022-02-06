@@ -3,8 +3,9 @@ import { Form } from "formik"
 import { Button } from "../Shared/Button"
 import { ErrorMessage } from "formik"
 import { Link } from "gatsby"
+import { boolean } from "yup"
 
-export const FormWrapper = styled(Form)`
+export const FormWrapper = styled(Form)<{ createmobileview?: boolean }>`
   gap: 1rem;
   height: 100%;
   min-width: 30rem;
@@ -34,7 +35,7 @@ export const FormWrapper = styled(Form)`
       `}
   }
 `
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<{ isError: boolean | {} }>`
   border: 3px solid ${props => props.theme.userBorderColor};
   outline: none;
   background: transparent;

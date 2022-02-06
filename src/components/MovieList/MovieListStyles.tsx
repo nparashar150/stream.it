@@ -42,7 +42,11 @@ export const MovieItemHeading = styled.h1`
   transition: 0.375s all ease-in-out;
   white-space: nowrap;
 `
-export const MovieItemInfo = styled.p`
+export const MovieItemInfo = styled.p<{
+  description?: boolean
+  genre?: boolean
+  rating?: boolean
+}>`
   font-size: 1.15rem;
   color: ${props => props.theme.background};
   z-index: 15;

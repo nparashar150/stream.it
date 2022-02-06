@@ -16,11 +16,6 @@ export default function MovieListMapper({ prismic }) {
     setData([...prismic])
   }, [prismic])
 
-  const bannerStyles = {
-    overflow: "hidden",
-    objectFit: "cover",
-  }
-
   return (
     <div className="container">
       <MovieListWrapper className="container px-2">
@@ -33,14 +28,14 @@ export default function MovieListMapper({ prismic }) {
                 <MovieImageWrapper>
                   <GatsbyImage
                     image={image}
-                    formats={["auto", "webp", "avif"]}
                     alt={"image"}
-                    style={bannerStyles}
+                    objectFit="cover"
+                    style={{ overflow: "hidden" }}
                   />
                 </MovieImageWrapper>
                 <MovieItemHeading>{e.movie_title.text}</MovieItemHeading>
                 <div>
-                  <MovieItemInfo releaseDate>
+                  <MovieItemInfo>
                     {e.movie_release_date1.slice(0, 4)}
                   </MovieItemInfo>
                   <MovieItemInfo genre>{e.movie_genre.text}</MovieItemInfo>

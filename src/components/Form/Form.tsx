@@ -24,6 +24,15 @@ import {
 } from "../../firebase"
 import { FcGoogle } from "react-icons/fc/index"
 import { navigate } from "gatsby"
+import { FormComponentProps } from "../../interface/FormComponentProps"
+
+interface FormProps {
+  firstName?: string
+  lastName?: string
+  email: any
+  password?: string
+  passwordConfirm?: string
+}
 
 const Form = ({
   formHeading,
@@ -36,7 +45,7 @@ const Form = ({
   loginInGoogle,
   forgotPassword,
   createmobileview,
-}) => {
+}: FormComponentProps) => {
   const ButtonConfig = {
     padding: ".5rem 2rem",
     curve: ".65rem",
@@ -48,7 +57,7 @@ const Form = ({
   const [mailSent, setMailSent] = useState(false)
   let { user, dispatch } = useContext(AuthContext)
 
-  const configHandler = params => {
+  const configHandler = (params: FormProps) => {
     if (formSubmitFunction === "create") {
       return createUserAccount(
         params.email,
@@ -67,12 +76,14 @@ const Form = ({
     }
   }
 
-  const handleGoogleLogin = e => {
+  const handleGoogleLogin = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
     e.preventDefault()
     loginWithGoogleAccount(user, dispatch)
   }
 
-  const handleReset = params => {
+  const handleReset = (params: FormProps) => {
     setMailSent(true)
     resetEmailPassword(params.email)
   }

@@ -5,3 +5,5 @@ declare namespace React {
     default?: boolean
   }
 }
+
+declare module "*.module.css"

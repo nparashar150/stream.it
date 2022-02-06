@@ -28,7 +28,11 @@ export const NavbarWrapper = styled.nav`
   }
 `
 
-export const NavLinkWrapper = styled.div`
+interface DivProps {
+  animatedNav: boolean
+}
+
+export const NavLinkWrapper = styled.div<{ animateNav: boolean }>`
   width: 50%;
   flex-direction: row;
   transition: 0.375s all ease-in-out;
