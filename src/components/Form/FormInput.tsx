@@ -2,7 +2,7 @@ import React from "react"
 import { useField } from "formik"
 import { StyledInput, Error } from "./FormElements"
 
-export const FormInput = ({ label, ...props }) => {
+export const FormInput = ({ label, ...props }: any) => {
   const [field, meta] = useField(props)
   return (
     <>

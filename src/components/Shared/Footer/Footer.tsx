@@ -27,7 +27,7 @@ export default function Footer({ isLanding }) {
   )
 }
 
-const FooterWrapper = styled.footer`
+const FooterWrapper = styled.footer<{ isLanding?: boolean }>`
   /* height: 10vh; */
   background: ${props => props.theme.background};
   color: ${props => props.theme.font};
@@ -64,7 +64,7 @@ const FooterInfo = styled.p`
     padding: 0 10vw;
   }
 `
-const FooterCopyrightsWrapper = styled.div`
+const FooterCopyrightsWrapper = styled.div<{ isLanding?: boolean }>`
   background: ${props => props.theme.background};
   flex-direction: column;
   color: ${props => props.theme.font};

@@ -1,4 +1,13 @@
-import styled, { css } from "styled-components"
+import styled, { css, StyledComponent } from "styled-components"
+
+interface ButtonProps {
+  padding?: boolean | string
+  curve?: boolean | string
+  fontSize?: boolean | string
+  bold?: boolean | string
+  dropShadow?: boolean | string
+  zIndex?: boolean
+}
 
 export const Button = styled.button`
   padding: ${props => (props.padding ? props.padding : "1rem 2rem")};

@@ -73,7 +73,7 @@ export default function Navbar() {
         formats={["auto", "webp", "avif"]}
         alt="Antler"
         style={navbrandConfig}
-        placeholder="BLURRED"
+        placeholder="blurred"
         onClick={() => navigate("/")}
       />
       {isMobile && (

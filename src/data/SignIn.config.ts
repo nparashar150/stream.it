@@ -1,6 +1,7 @@
 import * as Yup from "yup"
+import { FormComponentProps } from "../interface/FormComponentProps"
 
-export const formConfig = {
+export const formConfig: FormComponentProps = {
   formHeading: "Sign In",
   formSubmit: "Log In",
   formInputValues: [

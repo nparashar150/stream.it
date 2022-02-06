@@ -49,12 +49,7 @@ export default function Index({ data, features }) {
       </LandingWrapper>
       <AboutWrapper className="container-fluid d-flex justify-content-between align-items-center">
         <AboutImageWrapper>
-          <GatsbyImage
-            image={aboutImage}
-            formats={["auto", "webp", "avif"]}
-            alt={"image"}
-            style={ImageStyles}
-          />
+          <GatsbyImage image={aboutImage} alt={"image"} style={ImageStyles} />
         </AboutImageWrapper>
         <About className="d-flex justify-content-between align-items-center flex-column">
           <AboutHeading>{data.landingaboutheading.text}</AboutHeading>
@@ -86,12 +81,7 @@ export default function Index({ data, features }) {
             })}
           </FeatureInfo>
         </About>
-        <GatsbyImage
-          image={featuresImage}
-          formats={["auto", "webp", "avif"]}
-          alt={"image"}
-          style={ImageStyles}
-        />
+        <GatsbyImage image={featuresImage} alt={"image"} style={ImageStyles} />
       </AboutWrapper>
     </>
   )
