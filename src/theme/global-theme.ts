@@ -16,7 +16,15 @@ export const darkTheme = {
   userBorderColor: "#ffffff40",
 }
 
-export const GlobalStyle = createGlobalStyle`
+interface GlobalThemeProps {
+  background: string
+  font: string
+  offline: string
+  online: string
+  userBorderColor: string
+}
+
+export const GlobalStyle = createGlobalStyle<{ theme: GlobalThemeProps }>`
   * {
     padding: 0;
     margin: 0;

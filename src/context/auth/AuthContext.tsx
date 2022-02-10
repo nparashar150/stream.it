@@ -1,7 +1,14 @@
 import React, { createContext, useReducer } from "react"
 import AuthReducer from "./AuthReducer"
 
-const INITIAL_STATE = {
+interface INITIAL_STATE_PROPS {
+  user: string | string
+  isFetching: boolean
+  error: boolean
+  dispatch?: any
+}
+
+export const INITIAL_STATE: INITIAL_STATE_PROPS = {
   user: null,
   isFetching: false,
   error: false,
