@@ -33,7 +33,7 @@ export const MovieStory = styled.p`
   padding: 0.5rem 1rem;
   font-size: 1.15rem;
   width: 100%;
-  font-weight: 600;
+  font-weight: 500;
   color: ${props => props.theme.color};
 
   b {
@@ -55,6 +55,7 @@ export const MovieInsights = styled.p`
   ${({ description }) =>
     description &&
     css`
+      font-weight: 500;
       padding-top: 1rem;
     `}
 
